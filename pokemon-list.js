@@ -45,6 +45,7 @@ function verDetalle(url) {
             $("#nombre").text(response.name);
             $("#peso").text(response.weight);
             $("#altura").text(response.height);
+            $('#imagen').attr('src', response.sprites.front_default);
         }
     });
 };
