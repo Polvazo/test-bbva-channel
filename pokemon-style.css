@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+}
+
+.list-pokemon {
+    width: 50%;
+}
+
+.detail-pokemon {
+    width: 50%;
+}
