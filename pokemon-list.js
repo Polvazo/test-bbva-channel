@@ -4,14 +4,17 @@ $(document).ready(function () {
         type: "GET",
         cache: true,
         success: function (response) {
-            var button;
+            var count=0;
+            var list =[];
             $.each(response.results, function (key, value) {
-                button = $('<input/>').attr({
+
+                var button = $('<input/>').attr({
                     type: "button",
-                    id: value.url,
+                    id: "id-"+count,
                     value: "Ver detalles",
-                    onclick: verDetalle()
-                }); 
+                    contador: count
+                });
+                list.push(value);
                 $('#exampleid')
                 .append("<tr>\<td>"+ value.name + "</td>")
                 .append("<td>")
@@ -19,24 +22,29 @@ $(document).ready(function () {
                 .append("</td>")
                 .append("</tr>");
                                            
-            })
-            button.attr('onclick', function(i, v){
-                console.log(v)
-             });
+                $( "#id-"+count ).click(function() {
+                    verDetalle(value.url);
+                });
+                
+                count+=1;
+            });
+
         }
 
     });
 })
 
+
 function verDetalle(url) {
+    console.log(url)
     $.ajax({
         url: url,
         type: "GET",
         cache: true,
         success: function (response) {
-            $("#nombre").val(response.name);
-            $("#peso").val(response.weight);
-            $("#altura").val(response.height);
+            $("#nombre").text(response.name);
+            $("#peso").text(response.weight);
+            $("#altura").text(response.height);
         }
     });
 };
