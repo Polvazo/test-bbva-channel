@@ -9,3 +9,9 @@
 .detail-pokemon {
     width: 50%;
 }
+
+table, tr, td {
+    border: 1px inset black;
+    border-collapse: collapse;
+    border-spacing: 0;
+}

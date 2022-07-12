@@ -16,7 +16,7 @@ $(document).ready(function () {
                 });
                 list.push(value);
                 $('#exampleid')
-                .append("<tr>\<td>"+ value.name + "</td>")
+                .append("<tr><td>"+ value.name + "</td>")
                 .append("<td>")
                 .append(button)
                 .append("</td>")
